@@ -1,0 +1,26 @@
+nav {
+    /* background-color: rgba(200, 200, 200, 0.6);     */
+    background-color: rgba(22, 21, 17, 0.9);
+    width: 100%;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+nav li{
+    font-weight: 100;  
+    padding: 1.5%;
+}
+nav a {
+    color: whitesmoke;
+}
+nav li:hover{
+    background-color: rgba(0,0,0,0.06);
+}
+nav a.active{
+    color: rgb(134, 134, 76);
+}
+
+/* 490149 */

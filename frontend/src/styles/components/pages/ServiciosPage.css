@@ -1,0 +1,45 @@
+.nuestrascabañas{
+    display: block;
+}
+.cabañas{
+    margin: 2.5% 3%;
+    display: flex;
+    justify-content: space-between;
+}
+.cabañas img{
+    width: 250px;
+    height: 250px;
+    border-radius: 2px;
+}
+.cabañas p{
+    color: #490149;
+    font-weight: 600;
+    display: inline-block;
+    background-color: rgba(255, 255, 0, 0.5);
+}
+.cabañas img:hover {
+    /* filter: opacity(0.9); */
+    cursor: pointer;
+}
+
+.servicios{
+    margin-top: 10%;
+}
+.cuadroservicios{
+    column-count: 2;
+    text-align: center;
+    border: 2px solid yellowgreen;
+    border-radius: 2px;
+    padding: 5% 10% 5% 5%;
+    margin: 2.5% 10% auto 5%;
+}
+.cuadroservicios i{
+    color: #800080;
+    padding: 2%;
+    margin: 1%;
+    border: 1px solid #800080;
+    border-radius: 50%;
+}
+.cuadroservicios p{
+    padding: 5%;
+}

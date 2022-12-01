@@ -1,0 +1,65 @@
+.datos-de-contacto{
+    background-color: rgba(200, 200, 200, 0.1);
+    border: 1px solid #490149;
+    padding: 5%;
+    column-count: 2;
+    /* display: flex;
+    justify-content: space-between;
+    text-align: center; */
+    padding-left: 14%;
+}
+.datos-de-contacto i {
+    color: #490149;
+    font-size: small;
+    margin-right: 1%;
+}
+.datos-de-contacto p{
+    padding-bottom: 2%;
+}
+.redes{
+    text-align: center;
+}
+
+.formulario-de-contacto{
+    /* background-color: rgba(200, 200, 200, 0.1); */
+    /* border: 1px solid #490149; */
+    padding: 5% 0% 5% 5%;
+    margin-top: 3%;
+    width: 60%;
+}
+.formulario-de-contacto h4{
+    margin-bottom: 4%;
+    color: #490149;
+}
+form p:nth-child(odd) {
+    float: left;
+    width: 50%;
+}
+form p:nth-child(even) {
+    float: right;
+    width: 50%;
+}
+label{
+    display: block;
+    margin-bottom: 2%;
+}
+form p{
+    margin-bottom: 3%;
+}
+.btn{
+    display: block;
+    padding: 1%;
+    margin: 3% 30%;
+    width: 25%;
+    border: 1px solid #490149;
+    font-size: small;
+}
+.btn:hover{
+    cursor: pointer;
+}
+.btn:focus{
+    background-color: green;
+    border-color: green;
+    color: whitesmoke
+    ;
+}

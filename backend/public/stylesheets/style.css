@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+* {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0%;
+  padding: 0%;
+}
+a {
+  text-decoration: none;
+}
+
+main{
+  margin: 7% 14%;
+}
+h2{
+  /* color: #490149;     */
+  color: palevioletred;
+}
+
+nav {
+  /* background-color: rgba(200, 200, 200, 0.6);     */
+  background-color: rgba(22, 21, 17, 0.9);
+  width: 100%;
+}
+
+nav ul{
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+nav li{
+  font-weight: 100;  
+  padding: 1.5%;
+}
+nav a {
+  color: whitesmoke;
+}
+nav li:hover{
+  background-color: rgba(0,0,0,0.06);
+}
+nav a.active{
+  color: rgb(134, 134, 76);
+}
+
+
+.opacidad {
+  background-color: rgba(0,0,0,0.3);
+  height: 22vh;
+  width: 100%;
+}
+
+.holder {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+h1{
+  font-family: 'Great Vibes';
+  font-weight: lighter;
+  font-size: xx-large;
+  color: whitesmoke;
+  
+}
+
+header {
+  height: 22vh;
+  background-image: url(http://localhost:3000/images/fondo.jpg);
+  background-size: cover;
+  /* filter: brightness(0.5); */
+  /* background-color: rgba(0, 0, 0, 0.8); */
+}
+
+
+footer {
+  background-color: rgba(22, 21, 17, 0.9);
+  color: lightgrey;
+  padding: 1%;
+  font-size: small;
+  display: flex;
+  justify-content: space-around;
+}

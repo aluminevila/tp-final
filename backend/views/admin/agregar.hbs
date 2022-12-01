@@ -1,0 +1,19 @@
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        <div class="p-5 m-5 border border-light">
+            <h5>Agregar nueva imagen</h5>
+            <form action="/admin/administrador/agregar" method="post" enctype="multipart/form-data">
+                <div class="mb-3 row">
+                    <input type="text" class="form-control" placeholder="Título (opcional)" name="titulo">
+                </div>
+                <div class="mb-3 row form group">
+                    <label>Imagen: <input type="file" class="form-control" name="imagen" id="imagen"></label>
+                </div>
+                <button type="submit" class="btn btn-primary col-12">Agregar</button>
+            </form>
+            {{#if error}}
+                <p class="text-danger" style="font-size: 0.8rem;">{{message}}</p>
+            {{/if}}
+        </div>
+    </div>
+</div>

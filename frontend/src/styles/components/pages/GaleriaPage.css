@@ -1,0 +1,10 @@
+.album h2{
+    margin: 3% auto 2%;
+}
+.album img {
+    width: 200px;
+    height: 200px;
+}
+.album img:hover {
+    cursor: pointer;
+}
