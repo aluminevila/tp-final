@@ -54,21 +54,11 @@ router.post('/agregar', async (req, res, next) => {
       imagen = req.files.imagen;
       img_id = (await uploader(imagen.tempFilePath)).public_id;
     }
-
-    console.log(req.body) //opcional para ver si se comunican
-    // if (req. body.titulo != "" && req.body.descripcion != "") {
-    //   await administradorModel.insertServicio({
-    //     ...req.body,
-    //     img_id
-    //   });
-    //   res.redirect('/admin/administrador')
-    // } else {
-    //   res.render('admin/agregar', {
-    //     layout: 'admin/layout',
-    //     error: true,
-    //     message: 'Todos los campos son requeridos'
-    //   })
-    // }
+      await administradorModel.insertServicio({
+        ...req.body,
+        img_id
+      });
+      res.redirect('/admin/administrador')
   } catch (error) {
     console.log(error)
     res.render('admin/agregar', {
@@ -90,15 +80,12 @@ router.get('/eliminar/:id', async (req, res, next) => {
 
   await administradorModel.deleteServiciosById(id);
   res.redirect('/admin/administrador');
-}); // cierra get eliminar
+}); 
 
-//modificar la vista > formulario y los datos cargados
+//modificar 
 router.get('/modificar/:id', async (req, res, next) => {
   var id = req.params.id;
-  // console.log(req.params.id);
   var servicio = await administradorModel.getServicioById(id);
-
-
   res.render('admin/modificar', {
     layout: 'admin/layout',
     servicio
@@ -127,7 +114,6 @@ router.post('/modificar', async (req, res, next) => {
 
     var obj = {
       titulo: req.body.titulo,
-      descripcion: req.body.descripcion,
       img_id
     }
     // console.log(obj)

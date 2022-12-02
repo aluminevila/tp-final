@@ -75,7 +75,7 @@ const ContactoPage = (props) => {
                     <input type="email" required name='email' value={formData.email} onChange={handleChange}/></p>
 
                 <p><label htmlFor="fechaingreso">Fecha aprox. de ingreso:</label>
-                    <input type="number" name='fechaingreso' value={formData.fechaingreso} onChange={handleChange} required /></p>
+                    <input type="datetime" name='fechaingreso' value={formData.fechaingreso} onChange={handleChange} required /></p>
 
                 <p><label htmlFor="cantidadpersonas">Cantidad de personas:</label>
                     <input type="number" name='cantidadpersonas' value={formData.cantidadpersonas} onChange={handleChange} required /></p>
