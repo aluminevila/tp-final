@@ -54,11 +54,13 @@ router.post('/agregar', async (req, res, next) => {
       foto = req.files.foto;
       img_id = (await uploader(foto.tempFilePath)).public_id;
     }
+    if (req.body.img_id != ""){
       await administradorModel.insertFoto({
         ...req.body,
         img_id
       });
       res.redirect('/admin/administrador')
+    }
   } catch (error) {
     console.log(error)
     res.render('admin/agregar', {
