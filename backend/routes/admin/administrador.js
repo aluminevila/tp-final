@@ -7,25 +7,25 @@ const uploader = util.promisify(cloudinary.uploader.upload);
 const destroy = util.promisify(cloudinary.uploader.destroy);
 
 
-/* get listar */
+//lista
 router.get('/', async function(req, res, next) {
 
-  var administrador = await administradorModel.getServicios();
+  var administrador = await administradorModel.getFotos();
 
-  administrador = administrador.map(servicio => {
-    if (servicio.img_id) {
-      const imagen = cloudinary.image(servicio.img_id, {
+  administrador = administrador.map(foto => {
+    if (foto.img_id) {
+      const imagen = cloudinary.image(foto.img_id, {
         width: 25,
         height: 25,
         crop: 'fill'
       });
       return {
-        ...servicio,
+        ...foto,
         imagen
       }
     } else {
       return {
-        ...servicio,
+        ...foto,
         imagen: ''
       }
     }
@@ -42,19 +42,19 @@ router.get('/', async function(req, res, next) {
 router.get('/agregar', (req, res, next) => {
   res.render('admin/agregar', {
     layout: 'admin/layout'
-  }) 
-}); 
+  })
+});
 
-//insertar la novedad
+
 router.post('/agregar', async (req, res, next) => {
   try {
     var img_id = '';
     // console.log(req.files.imagen);
     if (req.files && Object.keys(req.files).length > 0) {
-      imagen = req.files.imagen;
-      img_id = (await uploader(imagen.tempFilePath)).public_id;
+      foto = req.files.foto;
+      img_id = (await uploader(foto.tempFilePath)).public_id;
     }
-      await administradorModel.insertServicio({
+      await administradorModel.insertFoto({
         ...req.body,
         img_id
       });
@@ -64,33 +64,33 @@ router.post('/agregar', async (req, res, next) => {
     res.render('admin/agregar', {
       layout: 'admin/layout',
       error: true,
-      message: 'No se ha podido cargar la imagen'
+      message: 'No se ha podido agregar la imagen'
     })
   }
 })
 
-//eliminar:
+//eliminar
 router.get('/eliminar/:id', async (req, res, next) => {
   var id = req.params.id;
 
-  let servicio = await administradorModel.getServicioById(id);
-  if (servicio.img_id) {
-    await (destroy(servicio.img_id));
+  let foto = await administradorModel.getFotoById(id);
+  if (foto.img_id) {
+    await (destroy(foto.img_id));
   }
 
-  await administradorModel.deleteServiciosById(id);
+  await administradorModel.deleteFotoById(id);
   res.redirect('/admin/administrador');
-}); 
+});
 
-//modificar 
+//modificar
 router.get('/modificar/:id', async (req, res, next) => {
   var id = req.params.id;
-  var servicio = await administradorModel.getServicioById(id);
+  var foto = await administradorModel.getFotoById(id);
   res.render('admin/modificar', {
     layout: 'admin/layout',
-    servicio
+    foto
   })
-}); 
+});
 
 //actualizar
 
@@ -118,14 +118,14 @@ router.post('/modificar', async (req, res, next) => {
     }
     // console.log(obj)
 
-    await administradorModel.modificarServicioById(obj, req.body.id);
+    await administradorModel.modificarFotoById(obj, req.body.id);
     res.redirect('/admin/administrador');
   }
   catch (error) {
     // console.log(error)
     res.render('admin/modificar', {
       layout: 'admin/layout',
-      error: true, 
+      error: true,
       message: 'No se ha podido modificar la novedad'
     })
   }
