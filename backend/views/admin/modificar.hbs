@@ -3,16 +3,21 @@
         <div class="p-5 m-5 border border-light">
             <h5>Modificar entrada:</h5>
             <form action="/admin/administrador/modificar" method="post" enctype="multipart/form-data">
-                <input type="hidden" value="{{servicio.id}}" name="id">
+                <input type="hidden" value="{{foto.id}}" name="id">
                 <div class="form-group">
                     <label for="">Título:</label>
-                    <input type="text" class="form-control" name="titulo" value="{{servicio.titulo}}">
+                    <input type="text" class="form-control" name="titulo" value="{{foto.titulo}}">
                 </div>
                 <div class="form-group">
                     <p>
-                        <label>Imagen:
-                            <input type="file" class="form-control" name="imagen" id="imagen">
+                        <label>Foto:
+                            <input type="file" class="form-control" name="foto" id="foto">
                         </label>
+                    </p>
+                    <p>
+                        <label><input type="checkbox" name="img_delete" id="img_delete" value="1">
+                        Eliminar imagen actual</label>
+                        <input type="hidden" name="img_original" value="{{foto.img_id}}">
                     </p>
                 </div>
                 <button type="submit" class="btn btn-primary col-12">Modificar</button>

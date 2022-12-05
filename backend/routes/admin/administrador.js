@@ -106,7 +106,8 @@ router.post('/modificar', async (req, res, next) => {
     } else {
       if (req.files && Object.keys(req.files).length > 0) {
         imagen = req.files.imagen;
-        img_id = (await uploader(imagen.tempFilePath)).public_id;
+        img_id = (await 
+          uploader(imagen.tempFilePath)).public_id;
         borrar_img_vieja = true;
       }
     }
@@ -128,7 +129,7 @@ router.post('/modificar', async (req, res, next) => {
     res.render('admin/modificar', {
       layout: 'admin/layout',
       error: true,
-      message: 'No se ha podido modificar la novedad'
+      message: 'No se ha podido modificar la entrada'
     })
   }
 })
