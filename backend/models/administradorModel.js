@@ -46,4 +46,4 @@ async function modificarFotoById(obj, id) {
     }
 }
 
-module.exports = { getFotos, insertFoto, deleteFotoById, getFotoById, modificarFotoById }
+module.exports = { getFotos, getFotoById, insertFoto, deleteFotoById, modificarFotoById }
