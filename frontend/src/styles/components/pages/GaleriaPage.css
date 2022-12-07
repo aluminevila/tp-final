@@ -8,3 +8,7 @@
 .album img:hover {
     cursor: pointer;
 }
+
+.galeria {
+    display: flex;
+}

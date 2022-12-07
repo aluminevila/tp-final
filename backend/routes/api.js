@@ -14,7 +14,7 @@ router.get('/fotos', async function (req, res, next) { //galeria o administrador
             const imagen = cloudinary.url(fotos.img_id, {
                 width: 200,
                 height: 200,
-                crop: 'fill' 
+                crop: 'fill'
             });
             return {
                 ...fotos,
