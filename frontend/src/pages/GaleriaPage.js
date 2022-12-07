@@ -1,41 +1,39 @@
-import React from 'react';
-
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import GaleriaItem from '../components/galeria/GaleriaItem';
 
-import '../styles/components/pages/GaleriaPage.css'
+import '../styles/components/pages/GaleriaPage.css' //?
 
 const GaleriaPage = (props) => {
     const [loading, setLoading] = useState(false);
-    const [galeria, setGaleria] = useState([]);
-
-    const [count, setCount] = useState(0);
+    const [fotos, setFotos] = useState([]); //fotos
 
     useEffect(() => {
-        async function fetchData() {
-            try {
-                setLoading(true)
-                const response = await axios.get('http://localhost:3000/api/galeria');
-                const galeria = response.data
-                const fotos = galeria.map(hola => hola.img_id)
-                setGaleria(fotos)
-                setLoading(false)
-            } catch (e) {
-                console.error(e);
-            }
+        const cargarFotos = async () => {
+            setLoading(true);
+            const response = await axios.get('http://localhost:3000/api/fotos');
+            setFotos(response.data);
+            setLoading(false);
         };
 
-        fetchData();
+        cargarFotos();
     }, []);
 
-    return (
-        <main>
+    return ( //main o section
+        <main> 
             <h2>Galería</h2>
-            { loading ? (<p>Cargando...</p>) : (<GaleriaItem title="galeria" image={galeria[0]} />) }
-
+            {
+                loading ? (
+                    <p>Cargando...</p>
+                ) : (
+                    fotos.map(item => <GaleriaItem key={item.id}
+                        title={item.titulo} photo={item.imagen} />)
+                    
+                ) 
+                
+            }
+        
         </main>
     )
 };
-
 export default GaleriaPage;
