@@ -6,29 +6,29 @@ var nodemailer = require('nodemailer');
 
 
 // cuando recibe administrador
-router.get('/galeria', async function (req, res, next) {
-    let servicios = await administradorModel.getServicios();
+router.get('/fotos', async function (req, res, next) { //galeria o administrador?
+    let fotos = await administradorModel.getFotos();
 
-    servicios = servicios.map(servicio => {
-        if (servicio.img_id) {
-            const imagen = cloudinary.url(servicio.img_id, {
-                width: 100,
-                height: 100,
+    fotos = fotos.map(fotos => {
+        if (fotos.img_id) {
+            const imagen = cloudinary.url(fotos.img_id, {
+                width: 200,
+                height: 200,
                 crop: 'fill' 
             });
             return {
-                ...servicio,
-                img_id: imagen
+                ...fotos,
+                imagen
             }
         } else {
             return {
-                ...servicio,
+                ...fotos,
                 img_id: ''
             }
         }
     });
 
-    res.json(servicios);
+    res.json(fotos);
 });
 
 //contacto
